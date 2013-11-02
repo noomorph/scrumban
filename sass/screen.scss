@@ -1,0 +1,68 @@
+@import "compass/reset";
+
+body {
+	font-size: 12px;
+}
+
+h1 {
+	font-size: 1.5em;
+	font-family: Georgia;
+	text-align: center;
+}
+
+footer {
+	text-align: right;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 20px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+th, td {
+	vertical-align: top;
+	border: dashed 1px #6cf;
+	padding: 0.5em;
+}
+
+th {
+	font-size: 1.2em;
+	text-align: center;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+tbody {
+	tr:nth-child(1) .note { background: pink; }
+	tr:nth-child(2) .note { background: #aaffaa; }
+	tr:nth-child(3) .note { background: orange; }
+	tr:nth-child(4) .note { background: #ffc; }
+	th { padding: 64px 0; }
+}
+
+.spacer, .note {
+	width: 128px;
+	margin: 2px;
+}
+
+.note {
+	position: relative;
+	height: 128px;
+	display: block;
+	float: left;
+	text-align: center;
+	padding: 4px;
+	border: solid 1px #222;
+
+	&:nth-child(odd) { clear: both; }
+
+	a {
+		display: none;
+		position: absolute;
+		bottom: 0.5em;
+		right: 1em;
+
+		&:hover { display: block; }
+	}
+}

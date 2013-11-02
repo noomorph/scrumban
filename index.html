@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Scrum Board</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="css/screen.css" rel="stylesheet">
+	<script type="text/html" id="noteTpl">
+	<!-- ko ifnot: deleted -->
+	<div class="note">
+		<span data-bind="text: id">&nbsp;</span>
+		<a href="#" class="delete" data-bind="click: $data.delete">Delete</a>
+	</div>
+	<!-- /ko -->
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<section>
+			<table>
+				<thead>
+					<tr><th colspan="8">
+						<header>
+							<h1>Scrumban</h1>
+							</header>
+					</th></tr>
+					<tr>
+						<th rowspan=2><div class="spacer"></div></th>
+						<th rowspan=2><div class="spacer"></div>Backlog</th>
+						<th rowspan=2><div class="spacer"></div>Selected</th>
+						<th colspan=2>Development</th>
+						<th rowspan=2><div class="spacer"></div>QA</th>
+						<th rowspan=2><div class="spacer"></div>Staging</th>
+						<th rowspan=2><div class="spacer"></div>Live</th>
+					</tr>
+					<tr>
+						<th><div class="spacer"></div>Work</th>
+						<th><div class="spacer"></div>Done</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr><td colspan="8"><footer>
+							<small>
+								&copy; <a href="https://github.com/noomorph">noomorph</a>, 2013. 
+								<a href="LICENSE">Licensed under GPLv2.</a>
+							</small>
+					</footer></td></tr>
+				</tfoot>
+				<tbody data-bind="foreach: { data: projects }">
+					<tr>
+						<th data-bind="text: name">&nbsp;</th>
+						<td data-bind="sortable: { data: backlog, connectClass: 'td', template: 'noteTpl' }"></td>
+						<td data-bind="sortable: { data: selected, connectClass: 'td', template: 'noteTpl' }"></td>
+						<td data-bind="sortable: { data: work, connectClass: 'td', template: 'noteTpl' }"></td>
+						<td data-bind="sortable: { data: done, connectClass: 'td', template: 'noteTpl' }"></td>
+						<td data-bind="sortable: { data: qa, connectClass: 'td', template: 'noteTpl' }"></td>
+						<td data-bind="sortable: { data: staging, connectClass: 'td', template: 'noteTpl' }"></td>
+						<td data-bind="sortable: { data: live, connectClass: 'td', template: 'noteTpl' }"></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+	</div>
+
+	<script src="bower_components/jquery/jquery.js"></script>
+	<script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+	<script src="bower_components/knockout/build/output/knockout-latest.debug.js"></script>
+	<script src="bower_components/knockout-sortable/build/knockout-sortable.js"></script>
+	<script src="js/app.js"></script>
+	<script type="text/javascript">
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+	</script>
+</body>
+</html>
