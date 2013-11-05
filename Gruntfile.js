@@ -11,24 +11,29 @@ grunt.initConfig({
 				compass: true
 			},
 			files: {
-				'css/screen.css': 'sass/screen.scss'
+				'public/css/screen.css': 'public/sass/screen.scss'
 			}
 		},
 	},
 	coffee: {
 		compile: {
 			files: {
-				'js/app.js': ['coffee/*.coffee']
+				'server/app.js': 'server/app.coffee',
+				'server/jira.js': 'server/jira.coffee',
+				'public/js/app.js': [
+					'public/coffee/classes/item.coffee',
+					'public/coffee/classes/project.coffee',
+					'public/coffee/app.coffee'
+				]
 			}
 		}
 	},
 	watch: {
 		main: {
-			files: [ 'Gruntfile.js', 'coffee/**/*.coffee', 'sass/**/*.scss' ],
+			files: [ 'Gruntfile.js', 'public/coffee/**/*.coffee', 'public/sass/**/*.scss', 'server/**/*.coffee' ],
 			tasks: 'build'
 		}
-	},
-
+	}
 });
 
 // Dependencies

@@ -1,8 +1,12 @@
 @import "compass/reset";
 
 body {
-	font-size: 12px;
+	font-size: 12px !important;
 }
+
+b { font-weight: bold; }
+i { font-style: italic; }
+small { font-size: 0.75em; }
 
 h1 {
 	font-size: 1.5em;
@@ -16,7 +20,6 @@ footer {
 
 table {
 	border-collapse: collapse;
-	margin: 20px;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
@@ -34,35 +37,42 @@ th {
 }
 
 tbody {
-	tr:nth-child(1) .note { background: pink; }
-	tr:nth-child(2) .note { background: #aaffaa; }
-	tr:nth-child(3) .note { background: orange; }
-	tr:nth-child(4) .note { background: #ffc; }
 	th { padding: 64px 0; }
+	td:nth-child(2), td:nth-child(8) {
+	 	.note:nth-child(even) { clear: none; }
+	}
 }
 
 .spacer, .note {
-	width: 128px;
-	margin: 2px;
+	width: 7.5em;
+}
+
+.spacer {
+	margin: 0 0.625em;
 }
 
 .note {
-	position: relative;
-	height: 128px;
 	display: block;
+	position: relative;
+	overflow: hidden;
 	float: left;
-	text-align: center;
-	padding: 4px;
+	clear: both;
+	margin: 0.125em;
+	padding: 0.5em;
 	border: solid 1px #222;
+	height: 7.5em;
 
-	&:nth-child(odd) { clear: both; }
+	text-align: justify;
 
-	a {
+	a.delete {
 		display: none;
 		position: absolute;
-		bottom: 0.5em;
-		right: 1em;
-
-		&:hover { display: block; }
+		top: 5px;
+		right: 5px;
+		color: black;
+		font-weight: bold;
+		text-decoration: none;
 	}
+
+	&:hover a.delete { display: block; }
 }

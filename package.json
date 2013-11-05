@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Scrumban Virtual Board",
   "homepage": "https://github.com/noomorh/scrumban",
+  "private": true,
+  "scripts": {
+    "start": "node server/app.js"
+  },
   "author": {
     "name": "Iaroslav Sergieiev"
   },
@@ -14,7 +18,9 @@
     "node": "~0.10.0"
   },
   "dependencies": {
-    "express": "~2.5.9"
+    "node-static": "~0.7.2",
+    "socket.io": "~0.9.16",
+    "jira": "~0.8.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

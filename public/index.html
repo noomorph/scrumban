@@ -4,12 +4,15 @@
 	<meta charset="utf-8">
 	<title>Scrum Board</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="bower_components/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet">
 	<link href="css/screen.css" rel="stylesheet">
 	<script type="text/html" id="noteTpl">
 	<!-- ko ifnot: deleted -->
-	<div class="note">
-		<span data-bind="text: id">&nbsp;</span>
-		<a href="#" class="delete" data-bind="click: $data.delete">Delete</a>
+	<div class="note" data-bind="style: { background: $parent.color }">
+		<a href="#" class="delete" data-bind="click: $data.delete">&times;</a>
+		<i data-bind="text: assignee">&nbsp;</i><br/><br/>
+		<b data-bind="text: id">&nbsp;</b>:<br/>
+		<small data-bind="text: summary">&nbsp;</small><br/>
 	</div>
 	<!-- /ko -->
 	</script>
@@ -19,18 +22,22 @@
 		<section>
 			<table>
 				<thead>
-					<tr><th colspan="8">
+					<tr>
+						<th colspan="5">
 						<header>
 							<h1>Scrumban</h1>
-							</header>
-					</th></tr>
+						</header>
+						</th>
+						<th colspan="2">
+							<input id="search" type="search" data-bind="value: query" />
+						</th>
+					</tr>
 					<tr>
 						<th rowspan=2><div class="spacer"></div></th>
 						<th rowspan=2><div class="spacer"></div>Backlog</th>
 						<th rowspan=2><div class="spacer"></div>Selected</th>
 						<th colspan=2>Development</th>
 						<th rowspan=2><div class="spacer"></div>QA</th>
-						<th rowspan=2><div class="spacer"></div>Staging</th>
 						<th rowspan=2><div class="spacer"></div>Live</th>
 					</tr>
 					<tr>
@@ -39,7 +46,7 @@
 					</tr>
 				</thead>
 				<tfoot>
-					<tr><td colspan="8"><footer>
+					<tr><td colspan="7"><footer>
 							<small>
 								&copy; <a href="https://github.com/noomorph">noomorph</a>, 2013. 
 								<a href="LICENSE">Licensed under GPLv2.</a>
@@ -54,7 +61,6 @@
 						<td data-bind="sortable: { data: work, connectClass: 'td', template: 'noteTpl' }"></td>
 						<td data-bind="sortable: { data: done, connectClass: 'td', template: 'noteTpl' }"></td>
 						<td data-bind="sortable: { data: qa, connectClass: 'td', template: 'noteTpl' }"></td>
-						<td data-bind="sortable: { data: staging, connectClass: 'td', template: 'noteTpl' }"></td>
 						<td data-bind="sortable: { data: live, connectClass: 'td', template: 'noteTpl' }"></td>
 					</tr>
 				</tbody>
@@ -64,11 +70,14 @@
 
 	<script src="bower_components/jquery/jquery.js"></script>
 	<script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
 	<script src="bower_components/knockout/build/output/knockout-latest.debug.js"></script>
+	<script src="bower_components/knockout.mapping/build/output/knockout.mapping-latest.debug.js"></script>
 	<script src="bower_components/knockout-sortable/build/knockout-sortable.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
 	<script src="js/app.js"></script>
 	<script type="text/javascript">
-		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
+//		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');
 	</script>
 </body>
 </html>
