@@ -1,4 +1,4 @@
-ITEM_STATUSES = ['backlog', 'selected', 'work', 'done', 'qa', 'live']
+ITEM_STATUSES = ['backlog', 'selected', 'work', 'done', 'qa', 'staging', 'live']
 
 class Item
 	constructor: (o) ->

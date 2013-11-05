@@ -18,8 +18,6 @@ grunt.initConfig({
 	coffee: {
 		compile: {
 			files: {
-				'server/app.js': 'server/app.coffee',
-				'server/jira.js': 'server/jira.coffee',
 				'public/js/app.js': [
 					'public/coffee/classes/item.coffee',
 					'public/coffee/classes/project.coffee',
