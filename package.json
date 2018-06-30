@@ -5,7 +5,9 @@
   "homepage": "https://github.com/noomorh/scrumban",
   "private": true,
   "scripts": {
-    "start": "node server/app.js"
+    "start": "node server/app.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": {
     "name": "Iaroslav Sergieiev"
@@ -20,12 +22,14 @@
   "dependencies": {
     "node-static": "~0.7.2",
     "socket.io": "~0.9.16",
-    "jira": "~0.8.1"
+    "jira": "~0.8.1",
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-sass": "~0.5.0",
     "grunt-contrib-watch": "~0.5.3"
-  }
+  },
+  "snyk": true
 }
