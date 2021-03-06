@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "node-static": "~0.7.2",
-    "socket.io": "~0.9.16",
+    "socket.io": "~1.0.1",
     "jira": "~0.8.1"
   },
   "devDependencies": {
